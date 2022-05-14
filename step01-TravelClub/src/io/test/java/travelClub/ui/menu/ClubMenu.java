@@ -63,7 +63,7 @@ public class ClubMenu {
         System.out.println("1. Register");
         System.out.println("2. Find(All)");
         System.out.println("3. Find(ID)");
-        System.out.println("4. Find(Name");
+        System.out.println("4. Find(Name)");
         System.out.println("5. Modify");
         System.out.println("6. Remove");
         System.out.println("...........................");

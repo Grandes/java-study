@@ -3,10 +3,9 @@ package io.test.java.travelClub.ui.console;
 import io.test.java.travelClub.entity.TravelClub;
 import io.test.java.travelClub.service.ClubService;
 import io.test.java.travelClub.service.ServiceLogicLifeCycler;
-import io.test.java.travelClub.service.logic.ClubServiceLogic;
 import io.test.java.travelClub.util.ConsoleUtil;
 
-import java.util.Scanner;
+import java.util.List;
 
 /**
  * @author kwon-yongho
@@ -48,8 +47,8 @@ public class ClubConsole {
     public void findAll() {
         System.out.println("Find All!!");
 
-        TravelClub[] foundClubs = clubService.findAll();
-        if(foundClubs.length == 0) {
+        List<TravelClub> foundClubs = clubService.findAll();
+        if(foundClubs.isEmpty()) {
             System.out.println("Empty!!");
             return;
         }
@@ -82,7 +81,7 @@ public class ClubConsole {
     public void findByName() {
         System.out.println("Find By Name!!");
 
-        TravelClub[] foundClubs = null;
+        List<TravelClub> foundClubs = null;
 
         while (true) {
             String clubName = consoleUtil.getValueOf("Club name to find(0.Club Menu)");
@@ -92,7 +91,7 @@ public class ClubConsole {
 
             foundClubs = clubService.findByName(clubName);
 
-            if(foundClubs != null && foundClubs.length != 0) {
+            if(foundClubs != null && !foundClubs.isEmpty()) {
                 for (TravelClub club : foundClubs) {
                     System.out.println(club.toString());
                 }
